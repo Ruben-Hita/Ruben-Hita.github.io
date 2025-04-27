@@ -32,9 +32,9 @@ Me he conectado a este subdominio con el navegador y he visto que corre un Gitea
 ![alt text](captura_2025-04-27_01-45-50.png)
 Si nos vamos a "Explore" podemos ver que hay dos repositorios uno llamado docker-config y otro llamado flask-app, nos vamos a centrar en el de docker-config.
 ![alt text](captura_2025-04-27_03-47-05.png)
-Dentro del repositorio docker-config he podido encontrar un archivo docker-compose.yml para la configuración de gitea. Conociendo ahora la ruta de configuración de gitea puedo hacer una petición usando LFI para leerlo y ver si hay información relevante.
+Dentro del repositorio docker-config en la carpeta gitea he podido encontrar un archivo docker-compose.yml para el despliegue de gitea con Docker. Donde pone "volumes" podemos ver la ruta de configuración de gitea, por lo que con una petición usando LFI intentaré leerlo y ver si hay información relevante.
 ![alt text](captura_2025-04-27_03-49-14.png)
-Esta es la documentación de como desplegar gitea con docker, en esta página he podido ver donde se aloja el archivo de configuración de gitea, en este caso es en `/gitea/conf/app.ini`
+En esta pagina podemos ver la documentación de como desplegar gitea con docker, y podemos ver donde se aloja el archivo de configuración de gitea, en este caso es en `/gitea/conf/app.ini`
 https://docs.gitea.com/next/installation/install-with-docker
 ## Explotación
 Por lo que conociendo que la ruta de gitea es `/home/developer/gitea/data` y la ruta del archivo de configuración es `/gitea/conf/app.ini` he hecho una petición con curl.
