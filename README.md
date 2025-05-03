@@ -1,4 +1,11 @@
 # Ruben-Hita.github.io
+
 ## Writeups
+
 ### Hack The Box
-[Titanic (easy)](https://ruben-hita.github.io/HackTheBox/Titanic/titanic)
+
+[Titanic (Fácil)](https://ruben-3.gitbook.io/ruben/hackthebox/titanic)
+
+### The Hacker Labs
+
+[El Candidato (Intermedio)](https://ruben-3.gitbook.io/ruben/thehackerlabs/el-candidato)
