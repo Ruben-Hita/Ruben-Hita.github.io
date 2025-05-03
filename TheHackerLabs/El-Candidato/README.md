@@ -125,7 +125,7 @@ Vi que en la página http://gyhabogados.thl/work-with-us.php hay un formulario e
 
 ![alt text](captura_2025-05-02_17-21-46.png)
 
-# Explotación
+## Explotación
 
 Creo un nuevo archivo .odt con Libre Office y en Tools > Macros > Edit Macros... Creo una nueva Macro llamada Main en el que ejecuto el siguiente comando:
 
