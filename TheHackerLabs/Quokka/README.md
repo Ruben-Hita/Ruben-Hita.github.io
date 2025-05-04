@@ -2,17 +2,22 @@
 
 Quokka es una máquina Windows de la plataforma de "The Hacker Labs". De dificultad fácil.
 
+- [Reconocimiento](#reconocimiento)
+- [Enumeración](#enumeración)
+- [Explotación](#explotación)
+- [Post-Explotación](#post-explotación)
+
 ## Reconocimiento
 
 Lo primero es hacer ping a la máquina para comprobar si hay conectividad. La ttl es 128 por lo tanto la máquina es Windows.
 
-![alt text](captura_2025-05-02_12-21-03.png)
+![ping](captura_2025-05-02_12-21-03.png)
 
 Hacemos un escaner con nmap para ver que puertos hay abiertos.
 
 `nmap -p- -vvv --open -T5 -Pn -n 10.0.2.16`
 
-![alt text](captura_2025-05-02_12-22-50.png)
+![puertos](captura_2025-05-02_12-22-50.png)
 
 ## Enumeración
 
@@ -78,19 +83,19 @@ Nmap done: 1 IP address (1 host up) scanned in 59.37 seconds
 
 También he ejecutado `whatweb` para ver si el servicio http me puede dar mas información pero no encuentro nada mas.
 
-![alt text](captura_2025-05-02_12-27-22.png)
+![whatweb](captura_2025-05-02_12-27-22.png)
 
 Si entramos en la página y la inspeccionamos un poco podremos vemos que es una página estática así que por aqui no hay mucho que ver.
 
-![alt text](captura_2025-05-02_12-28-28.png)
+![página](captura_2025-05-02_12-28-28.png)
 
 Luego ejecuto el comando `enum4linux` para ver si me da información sobre el SMB, pero al no proporcionarle ningún usuario no me da información.
 
-![alt text](captura_2025-05-02_12-31-11.png)
+![enum4linux](captura_2025-05-02_12-31-11.png)
 
 Viendo la parte derecha de la página podemos ver varios nombres.
 
-![alt text](captura_2025-05-02_12-31-34.png)
+![nombres](captura_2025-05-02_12-31-34.png)
 
 Así que probamos a ejecutar `enum4linux` con el usuario daniel, y ahora si obtenemos mas información.
 
@@ -98,13 +103,13 @@ Así que probamos a ejecutar `enum4linux` con el usuario daniel, y ahora si obte
 
 Tanto con `enum4linux` como con `smbmap` podemos ver una carpeta compartida con permisos tanto de lectura como de escritura.
 
-![alt text](captura_2025-05-02_12-32-46.png)
+![enum4linux](captura_2025-05-02_12-32-46.png)
 
-![alt text](captura_2025-05-02_12-33-11.png)
+![smbmap](captura_2025-05-02_12-33-11.png)
 
 Entramos en la carpeta compartida "Compartido" con `smbclient` y descargamos su contenido.
 
-![alt text](captura_2025-05-02_12-33-56.png)
+![smbclient](captura_2025-05-02_12-33-56.png)
 
 ```
 smb: \> mask ""
@@ -113,9 +118,9 @@ smb: \> prompt OFF
 smb: \> mget *
 ```
 
-![alt text](captura_2025-05-02_12-38-16.png)
+![tree](captura_2025-05-02_12-38-16.png)
 
-![alt text](captura_2025-05-02_12-38-29.png)
+![tree](captura_2025-05-02_12-38-29.png)
 
 Después de mirar varios archivos encontramos este, el cual se ejecuta cada minuto y lo que hace es descargar y ejecutar un archivo .ps1 con powershell.
 
@@ -127,7 +132,7 @@ Teniendo en cuenta que esta carpeta compartida tiene permisos de escritura podem
 
 `nvim mantenimiento.bat`
 
-![alt text](captura_2025-05-02_12-47-13.png)
+![mantenimiento.bat](captura_2025-05-02_12-47-13.png)
 
 Desde esta pagina podemos copiar una reverse shell que se ejecute con powershell:
 https://www.revshells.com/
@@ -136,11 +141,11 @@ Creamos el archivo shell.ps1 y pegamos el código.
 
 `nvim shell.ps1`
 
-![alt text](captura_2025-05-02_12-53-53.png)
+![shell.ps1](captura_2025-05-02_12-53-53.png)
 
 Creo un servidor http con python.
 
-![alt text](captura_2025-05-02_13-00-17.png)
+![python3 -m http.server 8000](captura_2025-05-02_13-00-17.png)
 
 Pongo el puerto 4444 en escucha con `msfconsole` para así posteriormente poder mejorar la shell a meterpreter (spoiler: no pude hacerlo).
 
@@ -154,29 +159,30 @@ run
 
 Subo el archivo `mantenimiento.bat` por SMB.
 
-![alt text](captura_2025-05-02_13-17-55.png)
+![put mantenimiento.bat](captura_2025-05-02_13-17-55.png)
 
 Espero a obtener la shell.
 
-![alt text](captura_2025-05-02_13-21-45.png)
+![multi/handler](captura_2025-05-02_13-21-45.png)
 
-![alt text](captura_2025-05-02_13-21-56.png)
+![pwd](captura_2025-05-02_13-21-56.png)
 
 ## Post-Explotación
 
 Aqui intento mejorar la shell a meterpreter sin exito.
 
-![alt text](captura_2025-05-02_13-24-23.png)
+![meterpreter](captura_2025-05-02_13-24-23.png)
 
 Abro la shell de nuevo y veo que soy el administrador.
 
 `sessions 2`
-![alt text](captura_2025-05-02_13-25-19.png)
+
+![dir](captura_2025-05-02_13-25-19.png)
 
 Aquí está la flag del admin admin.txt.
 
-![alt text](captura_2025-05-02_13-26-02.png)
+![admin.txt](captura_2025-05-02_13-26-02.png)
 
 Aquí está la flag de usuario user.txt.
 
-![alt text](captura_2025-05-02_13-27-30.png)
+![user.txt](captura_2025-05-02_13-27-30.png)
