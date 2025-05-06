@@ -1,0 +1,16 @@
+# Nmap 7.94SVN scan initiated Mon May  5 12:25:27 2025 as: nmap -p 22,80 -sVC -Pn -n -oN scan 10.0.2.20
+Nmap scan report for 10.0.2.20
+Host is up (0.0040s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.2p1 Debian 2+deb12u3 (protocol 2.0)
+| ssh-hostkey: 
+|   256 af:79:a1:39:80:45:fb:b7:cb:86:fd:8b:62:69:4a:64 (ECDSA)
+|_  256 6d:d4:9d:ac:0b:f0:a1:88:66:b4:ff:f6:42:bb:f2:e5 (ED25519)
+80/tcp open  http    Apache httpd 2.4.62 ((Debian))
+|_http-server-header: Apache/2.4.62 (Debian)
+|_http-title: Asignatura: Administraci\xC3\xB3n de Sistemas - Ingenier\xC3\xADa Inform\xC3\xA1...
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon May  5 12:25:36 2025 -- 1 IP address (1 host up) scanned in 8.57 seconds
