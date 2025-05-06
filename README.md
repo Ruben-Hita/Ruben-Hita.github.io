@@ -11,3 +11,5 @@
 [El Candidato (Intermedio)](https://ruben-3.gitbook.io/ruben/thehackerlabs/el-candidato)
 
 [Quokka (Fácil)](https://ruben-3.gitbook.io/ruben/thehackerlabs/quokka)
+
+[Facultad (Fácil)](https://ruben-3.gitbook.io/ruben/thehackerlabs/facultad)
