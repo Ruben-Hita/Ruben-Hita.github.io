@@ -13,3 +13,5 @@
 [Quokka (Fácil)](https://ruben-3.gitbook.io/ruben/thehackerlabs/quokka)
 
 [Facultad (Fácil)](https://ruben-3.gitbook.io/ruben/thehackerlabs/facultad)
+
+[Torrijas (Fácil)](https://ruben-3.gitbook.io/ruben/thehackerlabs/torrijas)
