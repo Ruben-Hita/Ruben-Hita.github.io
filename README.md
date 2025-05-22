@@ -15,3 +15,5 @@
 [Facultad (Fácil)](https://ruben-3.gitbook.io/ruben/thehackerlabs/facultad)
 
 [Torrijas (Fácil)](https://ruben-3.gitbook.io/ruben/thehackerlabs/torrijas)
+
+[Statue (Fácil)](https://ruben-3.gitbook.io/ruben/thehackerlabs/statue)
