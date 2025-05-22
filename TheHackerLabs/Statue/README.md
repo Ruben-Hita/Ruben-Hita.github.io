@@ -3,10 +3,10 @@
 Statue es una máquina Linux de la plataforma The Hacker Labs, de dificultad fácil.
 
 - [Reconocimiento](#reconocimiento)
-- [Enumeración](#enumeración)
-- [Explotación](#explotación)
-- [Post-Explotación](#post-explotación)
-- [Elevación de privilegios](#elevación-de-privilegios)
+- [Enumeración](#enumeracion)
+- [Explotación](#explotacion)
+- [Post-Explotación](#post-explotacion)
+- [Elevación de privilegios](#elevacion-de-privilegios)
 
 ## Reconocimiento
 
