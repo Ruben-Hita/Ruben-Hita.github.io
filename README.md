@@ -17,3 +17,7 @@
 [Torrijas (Fácil)](https://ruben-3.gitbook.io/ruben/thehackerlabs/torrijas)
 
 [Statue (Fácil)](https://ruben-3.gitbook.io/ruben/thehackerlabs/statue)
+
+### Try Hack Me
+
+[Lazy Admin (Fácil)](https://ruben-3.gitbook.io/ruben/tryhackme/lazy-admin)
