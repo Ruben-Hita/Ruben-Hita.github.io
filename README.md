@@ -21,3 +21,5 @@
 ### Try Hack Me
 
 [Lazy Admin (Fácil)](https://ruben-3.gitbook.io/ruben/tryhackme/lazy-admin)
+
+[Publisher (Fácil)](https://ruben-3.gitbook.io/ruben/tryhackme/publisher)
